@@ -1,5 +1,9 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/ConversationListPage",
+    "pages/ChatDetailPage",
+    "pages/AppsPage",
+    "pages/ProfilePage"
   ]
 }

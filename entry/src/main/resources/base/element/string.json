@@ -10,7 +10,27 @@
     },
     {
       "name": "EntryAbility_label",
-      "value": "label"
+      "value": "智能校园助手"
+    },
+    {
+      "name": "app_name",
+      "value": "智能校园助手"
+    },
+    {
+      "name": "mainability_description",
+      "value": "智能校园助手主页面"
+    },
+    {
+      "name": "chat_page_title",
+      "value": "智能对话"
+    },
+    {
+      "name": "apps_page_title",
+      "value": "校园应用"
+    },
+    {
+      "name": "profile_page_title",
+      "value": "个人中心"
     }
   ]
 }
