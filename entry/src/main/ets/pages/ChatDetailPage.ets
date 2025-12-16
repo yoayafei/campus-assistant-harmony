@@ -70,13 +70,18 @@ export struct ChatDetailPage {
       // 消息列表
       Scroll() {
         Column() {
-          ForEach(this.messageList, (message: ChatMessage) => {
-            this.buildMessageItem(message)
-          }, (message: ChatMessage) => message.id)
+          ForEach(
+            this.messageList,
+            (message: ChatMessage) => {
+              this.buildMessageItem(message)
+            },
+            (message: ChatMessage) => message.id.toString() // 转换为字符串
+          )
         }
         .width('100%')
         .padding({ left: 12, right: 12, top: 12, bottom: 80 })
       }
+
       .scrollable(ScrollDirection.Vertical)
       .scrollBar(BarState.Off)
       .layoutWeight(1)

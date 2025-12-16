@@ -4,6 +4,12 @@
     "pages/ConversationListPage",
     "pages/ChatDetailPage",
     "pages/AppsPage",
-    "pages/ProfilePage"
+    "pages/ProfilePage",
+    "pages/LibraryPage",
+    "pages/BookListPage",
+    "pages/BookDetailPage",
+    "pages/BorrowPage",
+    "pages/LibraryChatPage",
+    "pages/LibraryMainPage"
   ]
 }

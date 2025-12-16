@@ -1,3 +1,5 @@
+import router from '@ohos.router';
+
 @Component
 @Entry
 export struct AppsPage {
@@ -153,8 +155,22 @@ export struct AppsPage {
   // 打开应用
   openApp(app: AppItem) {
     console.log(`打开应用: ${app.name}`);
-    // 这里可以添加打开具体应用的逻辑
+    // 匹配图书馆应用，跳转到LibraryMainPage
+    if (app.name === '图书馆') {
+      try {
+        router.pushUrl({
+          url: 'pages/LibraryMainPage' // 替换为LibraryMainPage的实际路径
+        }, router.RouterMode.Standard);
+      } catch (error) {
+        console.error('跳转到图书馆页面失败:', error);
+      }
+    } else {
+      // 其他应用的点击逻辑
+      console.log(`暂未实现${app.name}的跳转逻辑`);
+    }
   }
+
+
 }
 
 // 应用数据模型

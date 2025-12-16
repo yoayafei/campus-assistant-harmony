@@ -6,7 +6,7 @@ import { ConversationListPage } from './ConversationListPage'
 @Entry
 @Component
 struct Index {
-  @State currentIndex: number = 1; // 默认选中应用页
+  @State currentIndex: number = 0; // 默认选中对话页
 
   private tabsController: TabsController = new TabsController();
 

@@ -81,19 +81,24 @@ export struct ConversationListPage {
       // 会话列表
       if (this.sessionList.length > 0) {
         List({ space: 0 }) {
-          ForEach(this.sessionList, (session: ChatSession) => {
-            ListItem() {
-              this.buildSessionItem(session)
-            }
-            .onClick(() => {
-              this.navigateToChatDetail(session.id);
-            })
-          }, (session: ChatSession) => session.id)
+          ForEach(
+            this.sessionList,
+            (session: ChatSession) => {
+              ListItem() {
+                this.buildSessionItem(session)
+              }
+              .onClick(() => {
+                this.navigateToChatDetail(session.id.toString()); // 转换为字符串
+              })
+            },
+            (session: ChatSession) => session.id.toString() // 转换为字符串
+          )
         }
         .width('100%')
         .margin({ top: 8 })
         .divider({ strokeWidth: 1, color: '#F0F0F0', startMargin: 72, endMargin: 16 })
-      } else {
+      }
+      else {
         // 空状态提示
         Column() {
           Image($r('app.media.empty_conversation'))
@@ -132,7 +137,7 @@ export struct ConversationListPage {
       }
       .width(48)
       .height(48)
-      .backgroundColor(this.getAvatarColor(session.id))
+      .backgroundColor(this.getAvatarColor(session.id.toString()))
       .borderRadius(24)
       .justifyContent(FlexAlign.Center)
       .margin({ left: 16, right: 12 })
@@ -206,7 +211,7 @@ export struct ConversationListPage {
     // 先添加到列表
     this.sessionList = [newSession, ...this.sessionList];
     // 跳转到新会话的详情页
-    this.navigateToChatDetail(newSession.id);
+    this.navigateToChatDetail(newSession.id.toString());
   }
 
   // 跳转到对话详情页

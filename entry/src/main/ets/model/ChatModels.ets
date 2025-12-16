@@ -1,23 +1,29 @@
 // entry/src/main/ets/model/ChatModels.ets
 
+import { Book,ChatMessageData } from './Book';
+
 // 单个会话的数据模型
 export interface ChatSession {
-  id: string;                     // 会话唯一ID
-  title: string;                  // 会话标题（可自动生成）
-  preview: string;                // 最后一条消息预览
-  timestamp: number;              // 最后活动时间戳
-  unreadCount: number;            // 未读消息数
-  isPinned: boolean;              // 是否置顶
-  avatar: string;                 // 头像资源路径或图标
+  id: string | number;          // 兼容后端的Long类型sessionId
+  title: string;                // 会话标题
+  preview: string;              // 最后一条消息预览
+  timestamp: number;            // 最后活动时间戳
+  unreadCount: number;          // 未读消息数
+  isPinned: boolean;            // 是否置顶
+  avatar: string;               // 头像图标
+  userId?: number;              // 关联用户ID
 }
 
 // 单条消息的数据模型
 export interface ChatMessage {
-  id: string;
-  sessionId: string;              // 关联的会话ID
-  content: string;
-  isFromUser: boolean;            // true为用户消息，false为AI回复
-  timestamp: number;
+  id: string | number;
+  sessionId: string | number;   // 关联的会话ID
+  content: string;              // 消息内容
+  isFromUser: boolean;          // true为用户消息，false为AI回复
+  timestamp: number;            // 时间戳
+  intent?: string;              // AI意图（如BOOK_SEARCH）
+  intentDesc?: string;          // 意图描述
+  data?: ChatMessageData;       // 附加数据（图书、开放时间等）
 }
 
 // 模拟数据源
